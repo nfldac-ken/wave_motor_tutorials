@@ -1,5 +1,6 @@
 {
     "name": "Wave_Motor_Tutorials",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "core": "*",

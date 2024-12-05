@@ -1,6 +1,16 @@
 
 > Open this page at [https://nfldac-ken.github.io/wave_motor_tutorials/](https://nfldac-ken.github.io/wave_motor_tutorials/)
 
+## To run the tutorial use hyperlinks
+
+kitronik_motor_driver. Wave motor tutorial.
+
+[https://makecode.microbit.org/#tutorial:github:nfldac-ken/wave_motor_tutorials/Wave_Kitronics_MotorDriver_Tutorial]
+
+
+
+
+
 ## Use as Extension
 
 This repository can be added as an **extension** in MakeCode.

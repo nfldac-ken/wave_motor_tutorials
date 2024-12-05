@@ -1,0 +1,25 @@
+{
+    "name": "Wave_Motor_Tutorials",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "Wave_Kitronics_MotorDriver_Tutorial.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "7.0.51",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}

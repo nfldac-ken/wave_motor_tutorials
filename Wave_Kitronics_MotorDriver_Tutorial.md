@@ -6,38 +6,7 @@ pxt-kitronik-motor-driver=github:kitronikltd/pxt-kitronik-motor-driver#v0.0.8
 
 
 
-``` template
 
-input.onButtonPressed(Button.A, function () {
-    start_Stop = 1
-})
-input.onButtonPressed(Button.B, function () {
-    start_Stop = 0
-})
-let potentiometer_1 = 0
-let start_Stop = 0
-start_Stop = 0
-basic.showLeds(`
-    . . . . .
-    . . . . #
-    . . . # .
-    # . # . .
-    . # . . .
-    `)
-loops.everyInterval(500, function () {
-    potentiometer_1 = pins.analogReadPin(AnalogReadWritePin.P1)
-    basic.showNumber(potentiometer_1 / 100)
-})
-basic.forever(function () {
-    while (start_Stop == 1) {
-        potentiometer_1 = pins.analogReadPin(AnalogReadWritePin.P1)
-        kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, potentiometer_1)
-        basic.pause(10)
-    }
-})
-
-
-``` 
 
 # Microbit Wave Motor Control with Driver board
 

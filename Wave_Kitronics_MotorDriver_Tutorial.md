@@ -45,13 +45,13 @@ Find the  ``||Variables.variables set()||`` instruction
 
 and place it in the on start block.
 
-use the drop down arrow and select the ``||start_Stop||`` variable name
+use the drop down arrow and select the **startStop** variable name
 
 > check it is set to **0** in the **white circle** 
 
 
 place a second **set** variable instruction from 
- ``||Variables.make a variable()||``
+ ``||Variables.variables set()||``
 
 use the drop down arrow **v** to select **speedFactor** 
 
@@ -101,11 +101,11 @@ placing it in a clear space
 
 
 
-From the  ``||Variables||`` menu drag
-and drop ``||variables.set()||`` and place it inside the ``||on button A||``
+From the  **Variables** menu drag
+and drop ``||Variables.variables.set()||`` and place it inside the ``||on button A||``
 function.
 
-> use the dropdown arrow **v** to select the **star_Stop** variable
+> use the dropdown arrow **v** to select the **startStop** variable
 
 Change the value in the **white circle** to **1**
 
@@ -120,7 +120,7 @@ and select **Duplicate** to create a copy.
 
 > drop this into a clear space on the screen. 
 
-Use the drop down arrow **v** to change **A** to **|B**  
+Use the drop down arrow **v** to change **A** to **B**  
 > the block will go from grey to purple. 
 
 ### Inside the on button B pressed function
@@ -191,7 +191,7 @@ into the **forever** block
 
 ### Set up the control of the loop block
 
-Drag and drop a  ``||Logic.logic()||``   **0 =v 0** 
+Drag and drop a  ``||Logic.logic()||``   **0 + v 0** 
 operator into the box with the same **vee** shaped ends at 
 the top of the **while** instruction. 
 

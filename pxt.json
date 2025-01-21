@@ -10,7 +10,8 @@
     "files": [
         "main.ts",
         "README.md",
-        "Wave_Kitronics_MotorDriver_Tutorial.md"
+        "Wave_Kitronics_MotorDriver_Tutorial.md",
+        "Wave_MotorDriver_Tutorial_ChangeSpeed.md"
     ],
     "testFiles": [
         "test.ts"

@@ -1,3 +1,4 @@
+
 ```package
 
 pxt-kitronik-motor-driver=github:kitronikltd/pxt-kitronik-motor-driver#v0.0.8
@@ -7,8 +8,7 @@ pxt-kitronik-motor-driver=github:kitronikltd/pxt-kitronik-motor-driver#v0.0.8
 
 
 
-
-# Microbit Wave Motor Control with Driver board
+# Microbit Wave Motor Control with Driver board : Create the code.
 
 
 
@@ -19,48 +19,62 @@ This is executed when the Microbit is reset.
 ### Add the code to create some variables and give them a value
 This is used to control the start and stop for the motor
 
+
+### Make the variables. 
+
 Make a variable by selecting  ``||Variables.make a variable()||``
 
-and clicking on the black Make a Variable... box
+> and clicking on the black **Make a Variable...** box
 
-give it the name ``||start_Stop||``
+>> Give it the name **startStop**
 
-do the same to add another variable ``||potentiometer_1||``
+Make a second variable by selecting  ``||Variables.make a variable()||``
+
+> Give it the name  **speedFactor**
+
+And a third variable by selecting  ``||Variables.make a variable()||``
+
+> Giving it the name  **speed**
 
 
-Find the  ``||Variables.variables set()||`` sub-block
+
+
+### Set up the variables. 
+
+Find the  ``||Variables.variables set()||`` instruction 
 
 and place it in the on start block.
 
 use the drop down arrow and select the ``||start_Stop||`` variable name
 
-check it is set to ``||0||``
+> check it is set to **0** in the **white circle** 
 
 
-Make a second variable by selecting  ``||Variables.make a variable()||``
+place a second **set** variable instruction from 
+ ``||Variables.make a variable()||``
 
-and clicking on the black Make a Variable... box
+use the drop down arrow **v** to select **speedFactor** 
 
-give it the name ``||potentiometer_1||``
+> set **speedFactor** to **2** 
 
-do the same to add another variable ``||potentiometer_1||``
 
-check it is set to ``||0||``
+These are the initial values for these variables that are 
+used to control the motor. 
 
 
 ### Add the display
 
-drag and drop a  ``||basic:show leds||`` into the ``||basic:onstart||`` island block
+drag and drop a  ``||basic:show leds||`` into the **onstart** block
 
 clicking on the squares to turn them white to create a tick shape
 
 
 ```blocks
 
-let potentiometer_1 = 0
-let start_Stop = 0
-start_Stop = 0
-potentiometer_1 = 0
+
+let startStop = 0
+startStop = 0
+let speedFactor = 2
 basic.showLeds(`
     . . . . .
     . . . . #
@@ -91,43 +105,73 @@ From the  ``||Variables||`` menu drag
 and drop ``||variables.set()||`` and place it inside the ``||on button A||``
 function.
 
-use the dropdown arrow to select the ``||start_Stop||`` variable
+> use the dropdown arrow **v** to select the **star_Stop** variable
 
-Change the value in the white circle to ``||1||``
+Change the value in the **white circle** to **1**
 
-When at a value of one, 
+>>When at a value of one, 
 this variable is used later to instruct the code to run the motor.
 
 
 ### Button B, stop the motor
 
-Right click on the ``||on button B||`` function
- and select ``||Duplicate||`` to
-create a copy.
+Right click on the **on button A pressed** function 
+and select **Duplicate** to create a copy.
 
-Use the drop down arrow to change ``||A||`` to ``||B||``,
-the block will go from grey to purple.
-Inside the ``||on button B||`` function
+> drop this into a clear space on the screen. 
+
+Use the drop down arrow **v** to change **A** to **|B**  
+> the block will go from grey to purple. 
+
+### Inside the on button B pressed function
 
 
-Inside the ``||on button B||`` function 
-right click and copy the ``||set||`` sub-function
+Change the value of **set startStop** in the white circle to 0 
 
-and place it inside the ``||on button B||`` function
+> a value of zero stops the motor.
 
-use the dropdown arrow to select the ``||start_Stop||`` variable
+### Add a status display. 
 
-Change the value in the white circle to ``||0||``
+Drag and drop a  ``||basic:show leds||`` inside at 
+the top of the **on button A pressed ** block 
 
-A value of zero stops the motor.
+> clicking on the squares to turn them white to create an 
+upward arrow shape to indicate that the motor is going to turn. 
+
+
+Drag and drop a  ``||basic:show leds||`` inside at 
+the top of the **on button B pressed ** block 
+
+> clicking on the squares to turn them white to create a 
+a square with a diagonal line accross it 
+to indicate that the motor is going to turn. 
+
+> look at the lightbulb hint to see how these might look.
+
 
 ``` blocks
 
 input.onButtonPressed(Button.A, function () {
-    start_Stop = 1
+    startStop = 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+    
 })
 input.onButtonPressed(Button.B, function () {
-    start_Stop = 0
+     startStop = 0
+     basic.showLeds(`
+        # . # # #
+        # # . . #
+        # . # . #
+        # . . # #
+        # # # . #
+        `)
+
 })
 
 
@@ -136,91 +180,124 @@ input.onButtonPressed(Button.B, function () {
 
 
 ## Add code to the Forever block
-This will run continuously and drive the motor
+This will run continuously and drive the motor when requested 
 
 
-### Add a logic function sub-block
+### Add a logic function instruction 
 
-drag and drop a  ``||loops.while||`` ``||loop||`` 
-into the ``||basic:forever||`` island block
-
-
-use the dropdown arrow to select the ``||Potetiometer_1||`` variable
-
+Drag and drop a  **loops** ``||loops.while do||`` 
+into the **forever** block 
 
 
 ### Set up the control of the loop block
 
-drag and drop a  ``||Logic||``  ``||logic:||``  ``||0 = 0||`` 
-operator into the same shaped box at the
- top of the ``||while||`` sub-function replacing the ``||false||`` operator.
+Drag and drop a  ``||Logic.logic()||``   **0 =v 0** 
+operator into the box with the same **vee** shaped ends at 
+the top of the **while** instruction. 
+
+> this is the top shape. 
+
+In the  ``||Variables.variables()||`` menu
+
+ > drag the **red oval** shape named **startStop** onto the **white circle**
+ after the word **while** 
+
+after the **=** set the value in the **white circle** to **1** 
+
+### Add some code inside the logic while instruction 
+
+From the  ``||Variables.variables()||`` menu drag 
+and drop **variables.set** and place it inside the green loop function
+
+
+> use the dropdown arrow **v** to select the **speed** variable. 
+
+Add a ``||Math.math()||`` operator, **0 = v 0** 
+
+> this is at the top.  
+
+>> drop it onthe **white circle** after thew word **to**
+
+
+
+
+Add a ``||Math.math()||`` operator, **0 / v 0** 
+
+> this is second from the bottom. 
+
+>> drop it on the first **white circle** after the word **to**
+
+
+From the  ``||Variables.variables()||`` menu **Your Variables** drag 
+and drop **speedFactor** and place it onto the first **white circle** 
+
+>> change the second **white circle** to the value **20** 
+
+>> and the last **white circle** to the value **5**
+
+
+This sets a value for the variable **speed** based on another variable 
+**speedFactor** and lets us use a more convenient 
+range of 0-100 for its value 
+
+
+### Motor instruction. 
+
+In the **Motor Driver** menu drag a  ``||kitronik_motor_driver.motorOn()||`` 
+instruction and place it under the **set speed** instruction 
+
+> check it is set to **motor 1 v**
+
+This instruction talks to the motor driver board 
 
 In the  ``||Variables.variables set()||`` menu
 
- drag a copy of the your variables ``||start_Stop||`` onto the white circle
- after the word ``||while||``
+ drag a copy of the **Your Variables** named **speed** onto the white circle
+ after the word **speed** 
 
-after the ``||=||`` set the value to ``||1||``
+The value of **speed** determines how fast the motor turns 
 
-
-### Add some code inside the logic while sub-block
-
-From the  ``||Variables||`` menu drag
-and drop ``||variables.set()||`` and place it inside the green loop function
-
-
-use the dropdown arrow to select the ``||Potetiometer_1||`` variable
-
-
-### In the ``||Motor Driver||`` ``||kitronik_motor_driver.motorOn()||`` menu
-
- drag a copy of the  ``||motor on direction||`` sub-block
- onto the white circle
-and place it inside the loop block
-
-
-check it is set to ``||motor 1||``
-
-
-
-In the  ``||Variables.variables set()||`` menu
-
- drag a copy of the your variables ``||Potetiometer_1||`` onto the white circle
- after the word ``||speed||``
-
- This writes the value read from the potentiometer
- to drive the motor controller
 
 ### Add a short delay
 
  From the ``||basic||`` menu 
  
  drag a copy of ``||basic.pause()||`` and drop it in below
- the analog write sub-block
+ the **motor** instruction 
 
- type in a delay time of 10 mS
+ check the delay value is **100 mS**
 
- This lets the hardware settle in between updates.
+ > This lets the hardware settle between updates.
 
 
+### Stop the motor
 
+From the **Motor Driver** menu drag a 
+ ``||kitronik_motor_driver.motorOff()||`` 
+
+ > and put it outside of the green **while do** but inside the blue 
+ **forever** block 
+
+ >> this stops the motor when the variable **startStop** is set to **0** 
 
 
 ```blocks
 
 basic.forever(function () {
-    while (start_Stop == 1) {
-        potentiometer_1 = pins.analogReadPin(AnalogReadWritePin.P1)
-        kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, potentiometer_1)
-        basic.pause(10)
+    while (startStop == 1) {
+        speed = speed_Factor / 20 + 5
+        kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
+        basic.pause(100)
     }
+    kitronik_motor_driver.motorOff(kitronik_motor_driver.Motors.Motor1)
 })
 
 
 ```
 
 
-## Add a every funtion block to drive the display
+## Add a every funtion block to drive the display 
+This allows us to see some of what is going on in the code
 
 ### From the Loops menu
 
@@ -231,46 +308,47 @@ Check the value in the white drop down box is ``||500||`` ms
 
 
 
-Find the  ``||Variables.variables set()||`` sub-block
 
-and place it in the ``||every||`` loop block.
-
-use the drop down arrow and select the ``||potentiometer_1||`` variable name
-
-
-In the  ``||Variables.variables()||`` menu
-
- drag a copy of the your variables ``||Potetiometer_1||`` onto the white circle
- after the word ``||to||``
-
-Add a ``||basic.showNumber()||`` below the ``||set||`` sub-block
+### From the **Basic** menu 
+drop a  ``||basic.shownumber()||`` instruction 
+inside the **every** function.
 
 
-Find the ``||Math||``  ``||math.0 / 0|``|   operator and drag it 
+### From the **Math** menu 
 
-onto the white circle after the word ``||number||``
+Find the ``||Math.math()||`` operator, **round v 0** 
+
+> this is at the bottom. 
+
+>> drop it on the **white circle** 
 
 
- Drag a copy of the your variables ``||Potetiometer_1||`` 
- onto the left hand white circle before the  ``||/||`` symbol
+Find a ``||Math.math()||`` operator, **0 / v 0** 
 
-Change the righ hand white circle after the  ``||/||`` symbol
-to 100
+> this is second from the bottom. 
 
-### The code above reads the analog input pin and saves its value.
+>> drop it on the **white circle**
 
-Places it into the potentiometer_1 variable (which is 0 to 1023),
- then displays the value, divided by 100 (now 0 to 10)
-on the MicroBit display. It does this every 500 mSeconds.
+
+
+
+### From the **variables** menu 
+
+Drag a copy of the **Your Variables** named **speedFactor** 
+ onto the first **white circle** 
+
+
+Change the second **white circle** value to **10**
+
+> This shows a representation of the speed factor on the MicroBit 
+display.
 
 
 ``` blocks
 
 loops.everyInterval(500, function () {
-    potentiometer_1 = pins.analogReadPin(AnalogReadWritePin.P1)
-    basic.showNumber(potentiometer_1 / 100)
+    basic.showNumber(Math.round(speed_Factor / 10))
 })
-
 
 ```
 
@@ -278,38 +356,59 @@ loops.everyInterval(500, function () {
 
 
 ## Try it out
-Check your code looks just like the hint then
+Check your code looks just like the light bulb hint, then 
 
 Get some help to make the connections to the test motor,
-the motor contoller,
+the motor contoller, 
 and its power supply.
 
-click ``|Download|`` to try your code out on the connected MicroBit
+> then click ``|Download|`` to try your code out on the connected MicroBit
 to see what it does.
 
-What happens to the motor as the MicroBit display changes?
 
-W
+### Make some observations and write them down 
 
-Is it working correctly?
+What happens to the MicroBit display?
+
+> and when the buttons are pressed, 
+
+What happens to the motor and the display? 
 
 
+> Is it working correctly?
 
+### Make some measurements to see if the speed is correct 
+
+When the motor speed is measured, is it running at the speed 
+that you are trying to achieve? 
+
+> If not, you will need to modify the code to change the speed ......
 
 
 
 ```blocks
-
 input.onButtonPressed(Button.A, function () {
-    start_Stop = 1
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . . # . .
+        . . # . .
+        `)
+    startStop = 1
 })
 input.onButtonPressed(Button.B, function () {
-    start_Stop = 0
+    basic.showLeds(`
+        # . # # #
+        # # . . #
+        # . # . #
+        # . . # #
+        # # # . #
+        `)
+    startStop = 0
 })
-let potentiometer_1 = 0
-let start_Stop = 0
-start_Stop = 0
-potentiometer_1 = 0
+let speed = 0
+let startStop = 0
 basic.showLeds(`
     . . . . .
     . . . . #
@@ -317,18 +416,59 @@ basic.showLeds(`
     # . # . .
     . # . . .
     `)
+startStop = 0
+let speed_Factor = 2
 loops.everyInterval(500, function () {
-    potentiometer_1 = pins.analogReadPin(AnalogReadWritePin.P1)
-    basic.showNumber(potentiometer_1 / 100)
+    basic.showNumber(Math.round(speed_Factor / 10))
 })
 basic.forever(function () {
-    while (start_Stop == 1) {
-        potentiometer_1 = pins.analogReadPin(AnalogReadWritePin.P1)
-        kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, potentiometer_1)
-        basic.pause(10)
+    while (startStop == 1) {
+        speed = speed_Factor / 20 + 5
+        kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
+        basic.pause(100)
     }
+    kitronik_motor_driver.motorOff(kitronik_motor_driver.Motors.Motor1)
 })
+```
+
+## Changing the motor speed 
+.
+
+Find the **on start** function block 
+
+> and find the **set speedFactor** instruction 
+
+>> change the value of the number in the **white circle** to **5** 
+
+
+### **Download**  the updated code to the Microbit 
+
+What has changed? 
+
+
+### Take a new speed measurement 
+And then adjust the variable **speedFactor** to get as close as you can 
+to your target revolutions per mininte (rpm) 
+
+> this may take several attempts.....
+
+
+```blocks
+
+
+let startStop = 0
+startStop = 0
+let speed_Factor = 5
+basic.showLeds(`
+    . . . . .
+    . . . . #
+    . . . # .
+    # . # . .
+    . # . . .
+    `)
+
+})
+
 
 
 ```
-

@@ -52,6 +52,35 @@ basic.forever(function () {
 
 ```
 
+# Microbit Wave Motor Control with Driver board : Change the speed 
+
+## See what the code does
+Get some help to make the connections to the test motor,
+the motor contoller, 
+and its power supply.
+
+> then click ``|Download|`` to try your code out on the connected MicroBit
+to see what it does.
+
+
+### Make some observations and write them down 
+
+What happens to the MicroBit display?
+
+> and when the buttons are pressed, 
+
+What happens to the motor and the display? 
+
+
+
+### Make some measurements to see if the speed is correct 
+
+When the motor speed is measured, is it running at the speed 
+that you are trying to achieve? 
+
+> If not, you will need to modify the code to change the speed ......
+
+
 
 ## Changing the motor speed 
 .

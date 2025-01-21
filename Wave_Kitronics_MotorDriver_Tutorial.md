@@ -285,7 +285,7 @@ From the **Motor Driver** menu drag a
 
 basic.forever(function () {
     while (startStop == 1) {
-        speed = speed_Factor / 20 + 5
+        speed = speedFactor / 20 + 5
         kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
         basic.pause(100)
     }
@@ -347,7 +347,7 @@ display.
 ``` blocks
 
 loops.everyInterval(500, function () {
-    basic.showNumber(Math.round(speed_Factor / 10))
+    basic.showNumber(Math.round(speedFactor / 10))
 })
 
 ```
@@ -417,13 +417,13 @@ basic.showLeds(`
     . # . . .
     `)
 startStop = 0
-let speed_Factor = 2
+let speedFactor = 2
 loops.everyInterval(500, function () {
-    basic.showNumber(Math.round(speed_Factor / 10))
+    basic.showNumber(Math.round(speedFactor / 10))
 })
 basic.forever(function () {
     while (startStop == 1) {
-        speed = speed_Factor / 20 + 5
+        speed = speedFactor / 20 + 5
         kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
         basic.pause(100)
     }
@@ -441,7 +441,8 @@ Find the **on start** function block
 >> change the value of the number in the **white circle** to **5** 
 
 
-### **Download**  the updated code to the Microbit 
+###  Send the updated code to the Microbit 
+by clicking ``|Download|`` 
 
 What has changed? 
 
@@ -458,7 +459,7 @@ to your target revolutions per mininte (rpm)
 
 let startStop = 0
 startStop = 0
-let speed_Factor = 5
+let speedFactor = 5
 basic.showLeds(`
     . . . . .
     . . . . #

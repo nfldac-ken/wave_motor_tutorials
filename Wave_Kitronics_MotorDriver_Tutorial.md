@@ -191,11 +191,13 @@ into the **forever** block
 
 ### Set up the control of the loop block
 
-Drag and drop a  ``||Logic.logic()||``   **0 + v 0** 
+Drag and drop a  ``||Logic.logic()||``   **0 = v 0** 
 operator into the box with the same **vee** shaped ends at 
 the top of the **while** instruction. 
 
 > this is the top shape. 
+
+
 
 In the  ``||Variables.variables()||`` menu
 
@@ -212,11 +214,11 @@ and drop **variables.set** and place it inside the green loop function
 
 > use the dropdown arrow **v** to select the **speed** variable. 
 
-Add a ``||Math.math()||`` operator, **0 = v 0** 
+Add a ``||Math.math()||`` operator, **0 + v 0** 
 
 > this is at the top.  
 
->> drop it onthe **white circle** after thew word **to**
+>> drop it on the **white circle** after thew word **to**
 
 
 
@@ -233,7 +235,7 @@ and drop **speedFactor** and place it onto the first **white circle**
 
 >> change the second **white circle** to the value **20** 
 
->> and the last **white circle** to the value **5**
+>> and the last **white circle** to the value **1**
 
 
 This sets a value for the variable **speed** based on another variable 
@@ -285,7 +287,7 @@ From the **Motor Driver** menu drag a
 
 basic.forever(function () {
     while (startStop == 1) {
-        speed = speedFactor / 20 + 5
+        speed = speedFactor / 20 + 1
         kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
         basic.pause(100)
     }
@@ -296,7 +298,7 @@ basic.forever(function () {
 ```
 
 
-## Add a every funtion block to drive the display 
+## Add an every function block to drive the display 
 This allows us to see some of what is going on in the code
 
 ### From the Loops menu

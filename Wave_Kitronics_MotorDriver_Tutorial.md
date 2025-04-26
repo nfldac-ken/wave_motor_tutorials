@@ -55,7 +55,7 @@ place a second **set** variable instruction from
 
 use the drop down arrow **v** to select **speedFactor** 
 
-> set **speedFactor** to **2** 
+> set **speedFactor** to **5** 
 
 
 These are the initial values for these variables that are 
@@ -74,7 +74,7 @@ clicking on the squares to turn them white to create a tick shape
 
 let startStop = 0
 startStop = 0
-let speedFactor = 2
+let speedFactor = 5
 basic.showLeds(`
     . . . . .
     . . . . #
@@ -235,7 +235,7 @@ and drop **speedFactor** and place it onto the first **white circle**
 
 >> change the second **white circle** to the value **20** 
 
->> and the last **white circle** to the value **1**
+>> and the last **white circle** to the value **3**
 
 
 This sets a value for the variable **speed** based on another variable 
@@ -287,7 +287,7 @@ From the **Motor Driver** menu drag a
 
 basic.forever(function () {
     while (startStop == 1) {
-        speed = speedFactor / 20 + 1
+        speed = speedFactor / 20 + 3
         kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
         basic.pause(100)
     }
@@ -419,13 +419,13 @@ basic.showLeds(`
     . # . . .
     `)
 startStop = 0
-let speedFactor = 2
+let speedFactor = 5
 loops.everyInterval(500, function () {
     basic.showNumber(Math.round(speedFactor / 10))
 })
 basic.forever(function () {
     while (startStop == 1) {
-        speed = speedFactor / 20 + 5
+        speed = speedFactor / 20 + 3
         kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
         basic.pause(100)
     }

@@ -43,7 +43,7 @@ loops.everyInterval(500, function () {
 })
 basic.forever(function () {
     while (startStop == 1) {
-        speed = speedFactor / 20 + 5
+        speed = speedFactor / 20 + 3
         kitronik_motor_driver.motorOn(kitronik_motor_driver.Motors.Motor1, kitronik_motor_driver.MotorDirection.Forward, speed)
         basic.pause(100)
     }
